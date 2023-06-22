@@ -8,11 +8,11 @@
 
 ### Kundennutzen:
 
-Mit dem Skript wird man täglich via Telegram benachrichtigt wie das morgige Wetter sein wird. In dieser Nachricht stehen Details wie die Temperatur im Verlaufe des Tages, die Regenwahrscheinlichkeit und Luftfeuchtigkeit.
+Mit dem Skript wird man täglich via Telegram benachrichtigt wie das morgige Wetter sein wird. In dieser Nachricht stehen Details wie die Höchst- und Tiefsttemperatur, die Niederschlagswahrscheinlichkeit und Wetterbedingung.
 
 ### Umgebung und Automation
 
-Das Skript läuft auf einem Linux-Rechner (Ubuntu)
+Das Skript läuft auf einem Linux-Rechner (Ubuntu) und greift darin auf einen Telegram-Client zu, um Nachrichten versenden zu können.
 
 Das Skript verarbeitet eine Konfigurationsdatei um den Standort zu bestimmen, damit die korrekten Wetterdaten ausgegeben werden können.
 
