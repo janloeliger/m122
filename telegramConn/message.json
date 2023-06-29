@@ -1,0 +1,18 @@
+{
+  "ok":true,
+  "result": [
+    {
+      "update_id":123,
+      "channel_post": {
+        "message_id":48,
+        "chat": {
+          "channel_id":5009754090,
+          "title":"Notifications",
+          "type":"channel"
+        },
+        "date":1574485277,
+        "text":"test"
+      }
+    }
+  ]
+}
