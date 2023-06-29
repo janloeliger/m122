@@ -1,5 +1,5 @@
-GROUP_ID=5009754090
-BOT_TOKEN=6271390408:AAGs958Q60ji8j-DQ4pvVLPRk3VywP_CC0M
+GROUP_ID=6122009233
+BOT_TOKEN=6252910635:AAHM7UnJybeZPdRLiIOYbUZzTIG8C_eS8Cc
 
 # this 3 checks (if) are not necessary but should be convenient
 if [ "$1" == "-h" ]; then
