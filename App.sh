@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
-source config/ConfigLoader.sh; # load the config library functions
-echo "$(config_get myvar)"; # will be found in user-cfg
-printf -- "%s\n" "$(config_get myvar)"; # safer way of echoing!
-myvar="$(config_get myvar)"; # how to just read a value without echoing
-echo "$(config_get othervar)"; # will fall back to defaults
-echo "$(config_get not_a_var)"; # "__UNDEFINED__" since it isn't set anywhere
+
+# loads the libraries
+source config/ConfigLoader.sh;
+source weather/weather-calls.sh;
+
+# initalizes the libraries
+config_set_path "config/config.cfg" "config/config.cfg.default"
+echo $(config_get weather_token) $(config_get location) $(config_get unit_type)
+init_forecast $(config_get weather_token) $(config_get location) $(config_get unit_type)
+echo $(get_max_temp)
