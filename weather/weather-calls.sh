@@ -43,7 +43,7 @@ get_weather_descr_tomorrow() {
   min_timestamp=$(date -u -d "${tomorrow} 00:01" +%s)
   max_timestamp=$(date -u -d "${tomorrow} 23:59" +%s)
 
-  echo $(echo $forecast_data | jq -r "[.daily[] | select(.dt >= $min_timestamp and .dt <= $max_timestamp) | .weather[0].description]")
+  echo $(echo $forecast_data | jq -r "[.daily[] | select(.dt >= $min_timestamp and .dt <= $max_timestamp) | .weather[0].description][0]")
 }
 
 get_weather_emoji_tomorrow() {
@@ -51,42 +51,39 @@ get_weather_emoji_tomorrow() {
   min_timestamp=$(date -u -d "${tomorrow} 00:01" +%s)
   max_timestamp=$(date -u -d "${tomorrow} 23:59" +%s)
 
-  input_string=$(echo $forecast_data | jq -r "[.daily[] | select(.dt >= $min_timestamp and .dt <= $max_timestamp) | .weather[0].icon]")
-  emoji=""
+  input_string=$(echo $forecast_data | jq -r "[.daily[] | select(.dt >= $min_timestamp and .dt <= $max_timestamp) | .weather[0].icon][0]")
   case $input_string in
   "01d")
-    emoji="☀️"
+    echo "☀️"
     ;;
   "02d")
-    emoji="⛅"
+    echo "⛅"
     ;;
   "03d")
-    emoji="☁️"
+    echo "☁️"
     ;;
   "04d")
-    emoji="☁️"
+    echo "☁️"
     ;;
   "09d")
-    emoji="🌧️"
+    echo "🌧️"
     ;;
   "10d")
-    emoji="🌧️"
+    echo "🌧️"
     ;;
   "11d")
-    emoji="🌩️"
+    echo "🌩️"
     ;;
   "13d")
-    emoji="❄️"
+    echo "❄️"
     ;;
   "50d")
-    emoji="🌫️"
+    echo "🌫️"
     ;;
   *)
-    emoji="🖾"
+    echo "🖾"
     ;;
   esac
-
-  echo $emoji
 }
 
 get_rain_tomorrow() {
@@ -94,7 +91,7 @@ get_rain_tomorrow() {
   min_timestamp=$(date -u -d "${tomorrow} 00:01" +%s)
   max_timestamp=$(date -u -d "${tomorrow} 23:59" +%s)
 
-  echo $(echo $forecast_data | jq -r "[.daily[] | select(.dt >= $min_timestamp and .dt <= $max_timestamp) | .pop]")
+  echo $(echo $forecast_data | jq -r "[.daily[] | select(.dt >= $min_timestamp and .dt <= $max_timestamp) | .pop][0]")
 }
 
 get_weather_morning_tomorrow() {
@@ -102,7 +99,7 @@ get_weather_morning_tomorrow() {
   min_timestamp=$(date -u -d "${tomorrow} 00:01" +%s)
   max_timestamp=$(date -u -d "${tomorrow} 23:59" +%s)
 
-  echo $(echo $forecast_data | jq -r "[.daily[] | select(.dt >= $min_timestamp and .dt <= $max_timestamp) | .temp.morn]")
+  echo $(echo $forecast_data | jq -r "[.daily[] | select(.dt >= $min_timestamp and .dt <= $max_timestamp) | .temp.morn] | min")
 }
 
 get_weather_day_tomorrow() {
@@ -110,7 +107,7 @@ get_weather_day_tomorrow() {
   min_timestamp=$(date -u -d "${tomorrow} 00:01" +%s)
   max_timestamp=$(date -u -d "${tomorrow} 23:59" +%s)
 
-  echo $(echo $forecast_data | jq -r "[.daily[] | select(.dt >= $min_timestamp and .dt <= $max_timestamp) | .temp.day]")
+  echo $(echo $forecast_data | jq -r "[.daily[] | select(.dt >= $min_timestamp and .dt <= $max_timestamp) | .temp.day] | max")
 }
 
 get_weather_night_tomorrow() {
@@ -118,7 +115,7 @@ get_weather_night_tomorrow() {
   min_timestamp=$(date -u -d "${tomorrow} 00:01" +%s)
   max_timestamp=$(date -u -d "${tomorrow} 23:59" +%s)
 
-  echo $(echo $forecast_data | jq -r "[.daily[] | select(.dt >= $min_timestamp and .dt <= $max_timestamp) | .temp.night]")
+  echo $(echo $forecast_data | jq -r "[.daily[] | select(.dt >= $min_timestamp and .dt <= $max_timestamp) | .temp.night] | min")
 }
 
 get_uv_tomorrow() {
@@ -126,5 +123,5 @@ get_uv_tomorrow() {
   min_timestamp=$(date -u -d "${tomorrow} 00:01" +%s)
   max_timestamp=$(date -u -d "${tomorrow} 23:59" +%s)
 
-  echo $(echo $forecast_data | jq -r "[.daily[] | select(.dt >= $min_timestamp and .dt <= $max_timestamp) | .uvi]")
+  echo $(echo $forecast_data | jq -r "[.daily[] | select(.dt >= $min_timestamp and .dt <= $max_timestamp) | .uvi] | max")
 }
