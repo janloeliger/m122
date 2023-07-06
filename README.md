@@ -5,11 +5,8 @@
 - Jan Löliger
 
 ## Dokumente
+[Installationsanleitung](Installationsanleitung.md)  
 [Benutzeranleitung](Benutzeranleitung.md)  
-[Installationsanleitung](Installationsanleitung.md)
-
-
-
 
 ## Anforderungsdefinition
 
