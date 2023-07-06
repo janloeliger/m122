@@ -2,7 +2,6 @@
 Auf der [OpenWeather Webseite](https://openweathermap.org/) einen Account erstellen und sich unter [API](https://openweathermap.org/api/one-call-3) einen API-Key erstellen lassen.
 
 
-
 ## Telegramm
 1. Telegramm installieren und es einrichten
 2. BotFather in der Suchleiste eingeben
@@ -17,4 +16,7 @@ Auf der [OpenWeather Webseite](https://openweathermap.org/) einen Account erstel
 Im Ordner namens config, die config.cfg Datei öffnen und:  
 - bei der Variabel ``weather-token`` ihren API-Key eingeben  
 - bei der Variabe ``telegram_bot_token`` ihren Bot-Token eingeben  
-- bei der Variabel ``telegram_chat_token`` ihre Chat-ID eingeben  
+- bei der Variabel ``telegram_chat_token`` ihre Chat-ID eingeben
+  
+Ebenfalls kann man die ``location`` und den ``forecast_length_day`` beliebig anpassen, damit man die gewünschte Wettervorhersage erhält.
+
