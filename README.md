@@ -5,7 +5,7 @@
 - Jan Löliger
 
 ## Dokumente
-[Benutzeranleitung.md](https://github.com/janloeliger/m122/files/11965012/Benutzeranleitung.md)  
+[Benutzeranleitung.md](Benutzeranleitung.md)
 [Installationsanleitung](https://github.com/janloeliger/m122/files/11965015/Installationsanleitung.md)
 
 
@@ -13,7 +13,7 @@
 
 ## Anforderungsdefinition
 
-### Kundennutzen:
+### Kundennutzen
 
 Mit dem Skript wird man täglich via Telegram benachrichtigt wie das morgige Wetter sein wird. In dieser Nachricht stehen Details wie die Höchst- und Tiefsttemperatur, die Niederschlagswahrscheinlichkeit und Wetterbedingung.
 
