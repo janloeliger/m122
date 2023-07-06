@@ -1,8 +1,20 @@
-## OpenWeather
-Account erstellen und sich ein unrer api- Key (one call api)
+## OpenWeather  
+Auf der [OpenWeather Webseite](https://openweathermap.org/) einen Account erstellen und sich unter [API](https://openweathermap.org/api/one-call-3) einen API-Key erstellen lassen.
 
-## COnfig
-key im ordner config - config datei unter weather token
+
 
 ## Telegramm
+1. Telegramm installieren und es einrichten
+2. BotFather in der Suchleiste eingeben
+3. Den Chat mit BotFather öffnen
+4. mit ``/start`` die Konversation mit BotFather starten.
+5. Den Befehl ``/newbot`` eingeben, um einen neuen Bot zu erstellen
+6. Die Anweisungen des BotFather befolgen um einen Bot zu erstellen und den Bot-Token zu erhalten.
+7. Konversation mit dem erstellten Bot anfangen um den Chat-Token zu erhalten.
 
+
+## Konfiguration
+Im Ordner namens config, die config.cfg Datei öffnen und:  
+- bei der Variabel ``weather-token`` ihren API-Key eingeben  
+- bei der Variabe ``telegram_bot_token`` ihren Bot-Token eingeben  
+- bei der Variabel ``telegram_chat_token`` ihre Chat-ID eingeben  
