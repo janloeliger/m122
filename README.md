@@ -5,7 +5,7 @@
 - Jan Löliger
 
 ## Dokumente
-[Benutzeranleitung](https://github.com/janloeliger/m122/files/11965012/Benutzeranleitung.md)  
+[Benutzeranleitung.md](https://github.com/janloeliger/m122/files/11965012/Benutzeranleitung.md)  
 [Installationsanleitung](https://github.com/janloeliger/m122/files/11965015/Installationsanleitung.md)
 
 
