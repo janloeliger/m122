@@ -219,3 +219,5 @@ Vorraussichtlich wird der 16-Tage-Forcast verwendet (https://openweathermap.org/
     },
     ....
 ```
+### Activity-Diagram
+![ad_ver1](https://github.com/janloeliger/m122/assets/90830948/126c385c-5729-458d-9161-c18eeca06b38)
