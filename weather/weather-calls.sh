@@ -4,22 +4,25 @@ API_KEY=""
 CITY=""
 LATITUDE=""
 LONGITUDE=""
-UNITS=""
+UNITS="metric"
 LANGUAGE="de"
 forecast_data=""
 
 init_forecast() {
   API_KEY=${1}
   CITY=${2}
-  UNITS=${3}
   get_coordinates $CITY
-  forecast_data=$(curl -s "https://api.openweathermap.org/data/3.0/onecall?units=metric&lang=${LANGUAGE}&lat=${LATITUDE}&lon=${LONGITUDE}&exclude=minutely,hourly&appid=aef9cd8db16eae5f11c21bd580fb46d0")
+  forecast_data=$(curl -s "https://api.openweathermap.org/data/3.0/onecall?units=metric&lang=${LANGUAGE}&lat=${LATITUDE}&lon=${LONGITUDE}&exclude=minutely,hourly&appid=${API_KEY}")
 }
 
 get_coordinates() {
   location_data=$(curl -s "http://api.openweathermap.org/geo/1.0/direct?q=${1}&limit=1&appid=aef9cd8db16eae5f11c21bd580fb46d0")
   LATITUDE=$(echo $location_data | jq -r '.[0].lat')
   LONGITUDE=$(echo $location_data | jq -r '.[0].lon')
+}
+
+get_main_city() {
+  echo $CITY
 }
 
 get_min_temp_tomorrow() {
