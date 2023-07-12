@@ -1,2 +1,1 @@
-myvar=Default Value
-othervar=test
+forecast_length_days=1
