@@ -20,3 +20,6 @@ Im Ordner namens config, die config.cfg Datei öffnen und:
   
 Ebenfalls kann man die ``location`` und den ``forecast_length_day`` beliebig anpassen, damit man die gewünschte Wettervorhersage erhält.
 
+## Daten empfangen
+Sollte alles korrekt aufgesetzt sein, wird man täglich um 19 Uhr über das kommende Wetter benachrichtigt. Zusätlich überprüft das Skript jede 5 Minuten ob eine Wetterwarnung erstellt wurde. Sollte dies der Fall sein wird sofort eine Nachricht an Telegram gesendet.
+
