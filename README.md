@@ -76,6 +76,20 @@ Json welches gesendet wird:
 ```
 
 In das Feld ```text``` wird die Nachricht geschrieben. Die Nachricht wird nach volgendem Konzept versendet:
+
+Bei einem einzelnen Tag:  
+```
+Guten Abend
+
+Das Wetter morgen wird voraussichtlich so sein:
+- Höchsttemperatur: 
+- Tiefsttemperatur: 
+- Niederschlagswahrscheinlichkeit: 
+- Wetterbedingungen: -> Sonnig, Bewölkt etc...
+...
+```
+
+Bei mehreren Tagen wird alles in einer Nachricht verschickt und die Tage werden getrennt durch z.B einer Linie: 
 ```
 Guten Abend
 
@@ -85,15 +99,40 @@ Das Wetter morgen wird voraussichtlich so sein:
 - Niederschlagswahrscheinlichkeit: 
 - Wetterbedingungen: -> Sonnig, Bewölkt etc...
 
-Das Wetter in den Folgenden Tagen könnte so aussehen:
-- Tag XYZ
-    - Höchsttemperatur: 
-    - Tiefsttemperatur: 
-    - Niederschlagswahrscheinlichkeit: 
-    - Wetterbedingungen: -> Sonnig, Bewölkt etc...
-...
+----------------------------------------------------
+
+Das Wetter übermorgen wird voraussichtlich so sein:
+- Höchsttemperatur: 
+- Tiefsttemperatur: 
+- Niederschlagswahrscheinlichkeit: 
+- Wetterbedingungen: -> Sonnig, Bewölkt etc...
+
 ```
 
+Bei mehreren Standorte:  
+Da wird für jeder Standort eine seperate Nachricht abgeschickt.
+```
+Guten Abend
+
+Das Wetter morgen in [Standort1] wird voraussichtlich so sein:
+- Höchsttemperatur: 
+- Tiefsttemperatur: 
+- Niederschlagswahrscheinlichkeit: 
+- Wetterbedingungen: -> Sonnig, Bewölkt etc...
+
+...
+```
+```
+Guten Abend
+
+Das Wetter morgen in [Standort2] wird voraussichtlich so sein:
+- Höchsttemperatur: 
+- Tiefsttemperatur: 
+- Niederschlagswahrscheinlichkeit: 
+- Wetterbedingungen: -> Sonnig, Bewölkt etc...
+
+...
+```
 ### Openweatherdata Request
 
 Die Wetterdaten werden auf https://openweathermap.org/api#current geholt.
