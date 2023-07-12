@@ -10,3 +10,5 @@ Auf Linux:
 Danach mit dem Packagemanager pip muss man jq installieren mit folgendem befehl in der Konsole  
 ``pip3 install jq`` oder ``pip install jq``
 
+Damit das Skript Täglich die Wetterdaten sendet und auf kommende gefahren prüfen kann muss einen Cronjob erstellt werden. Damit das passiert kann man folgende Datei ausführen
+´´./cron_installer.sh´´
