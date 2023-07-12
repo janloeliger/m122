@@ -1,0 +1,20 @@
+2023-07-12 20:52:02 : Script execution started
+2023-07-12 20:52:03 : Sent message via Telegram to user
+2023-07-12 20:53:26 : Script execution started
+2023-07-12 20:53:26 : Sent message via Telegram to user
+2023-07-12 20:53:28 : Script execution started
+2023-07-12 20:53:29 : Sent message via Telegram to user
+2023-07-12 20:53:29 : Script execution started
+2023-07-12 20:53:30 : Sent message via Telegram to user
+2023-07-12 20:55:39 : Script execution started
+2023-07-12 20:55:40 : Sent daily weather forecast via Telegram to user
+2023-07-12 20:57:16 : Script execution started
+2023-07-12 20:57:17 : Sent daily weather forecast via Telegram to user
+2023-07-12 21:20:50 : Script execution started
+./App.sh: line 29: send_weather: command not found
+2023-07-12 21:21:24 : Script execution started
+
+./App.sh: line 31: send_weather: command not found
+2023-07-12 21:22:09 : Script execution started
+
+2023-07-12 21:22:10 : Sent daily weather forecast via Telegram to user

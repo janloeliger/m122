@@ -25,35 +25,35 @@ get_main_city() {
   echo $CITY
 }
 
-get_min_temp_tomorrow() {
-  tomorrow=$(date -u -d "tomorrow" +"%Y-%m-%d")
-  min_timestamp=$(date -u -d "${tomorrow} 00:01" +%s)
-  max_timestamp=$(date -u -d "${tomorrow} 23:59" +%s)
+calculate_timestamps() {
+  local days=$1
+  local date=$(date -u -d "+${days} days" +"%Y-%m-%d")
+  min_timestamp=$(date -u -d "${date} 00:01" +%s)
+  max_timestamp=$(date -u -d "${date} 23:59" +%s)
+}
 
+
+get_min_temp() {
+  local days=$1
+  calculate_timestamps $days
   echo $(echo $forecast_data | jq -r "[.daily[] | select(.dt >= $min_timestamp and .dt <= $max_timestamp) | .temp.min] | min")
 }
 
-get_max_temp_tomorrow() {
-  tomorrow=$(date -u -d "tomorrow" +"%Y-%m-%d")
-  min_timestamp=$(date -u -d "${tomorrow} 00:01" +%s)
-  max_timestamp=$(date -u -d "${tomorrow} 23:59" +%s)
-
+get_max_temp() {
+  local days=$1
+  calculate_timestamps $days
   echo $(echo $forecast_data | jq -r "[.daily[] | select(.dt >= $min_timestamp and .dt <= $max_timestamp) | .temp.max] | max")
 }
 
-get_weather_descr_tomorrow() {
-  tomorrow=$(date -u -d "tomorrow" +"%Y-%m-%d")
-  min_timestamp=$(date -u -d "${tomorrow} 00:01" +%s)
-  max_timestamp=$(date -u -d "${tomorrow} 23:59" +%s)
-
+get_weather_descr() {
+  local days=$1
+  calculate_timestamps $days
   echo $(echo $forecast_data | jq -r "[.daily[] | select(.dt >= $min_timestamp and .dt <= $max_timestamp) | .weather[0].description][0]")
 }
 
-get_weather_emoji_tomorrow() {
-  tomorrow=$(date -u -d "tomorrow" +"%Y-%m-%d")
-  min_timestamp=$(date -u -d "${tomorrow} 00:01" +%s)
-  max_timestamp=$(date -u -d "${tomorrow} 23:59" +%s)
-
+get_weather_emoji() {
+  local days=$1
+  calculate_timestamps $days
   input_string=$(echo $forecast_data | jq -r "[.daily[] | select(.dt >= $min_timestamp and .dt <= $max_timestamp) | .weather[0].icon][0]")
   case $input_string in
   "01d")
@@ -77,9 +77,6 @@ get_weather_emoji_tomorrow() {
   "11d")
     echo "🌩️"
     ;;
-  "13d")
-    echo "❄️"
-    ;;
   "50d")
     echo "🌫️"
     ;;
@@ -89,42 +86,41 @@ get_weather_emoji_tomorrow() {
   esac
 }
 
-get_rain_tomorrow() {
-  tomorrow=$(date -u -d "tomorrow" +"%Y-%m-%d")
-  min_timestamp=$(date -u -d "${tomorrow} 00:01" +%s)
-  max_timestamp=$(date -u -d "${tomorrow} 23:59" +%s)
-
+get_rain() {
+  local days=$1
+  calculate_timestamps $days
   echo $(echo $forecast_data | jq -r "[.daily[] | select(.dt >= $min_timestamp and .dt <= $max_timestamp) | .pop][0]")
 }
 
-get_weather_morning_tomorrow() {
-    tomorrow=$(date -u -d "tomorrow" +"%Y-%m-%d")
-  min_timestamp=$(date -u -d "${tomorrow} 00:01" +%s)
-  max_timestamp=$(date -u -d "${tomorrow} 23:59" +%s)
-
+get_weather_morning() {
+  local days=$1
+  calculate_timestamps $days
   echo $(echo $forecast_data | jq -r "[.daily[] | select(.dt >= $min_timestamp and .dt <= $max_timestamp) | .temp.morn] | min")
 }
 
-get_weather_day_tomorrow() {
-    tomorrow=$(date -u -d "tomorrow" +"%Y-%m-%d")
-  min_timestamp=$(date -u -d "${tomorrow} 00:01" +%s)
-  max_timestamp=$(date -u -d "${tomorrow} 23:59" +%s)
-
+get_weather_day() {
+  local days=$1
+  calculate_timestamps $days
   echo $(echo $forecast_data | jq -r "[.daily[] | select(.dt >= $min_timestamp and .dt <= $max_timestamp) | .temp.day] | max")
 }
 
-get_weather_night_tomorrow() {
-    tomorrow=$(date -u -d "tomorrow" +"%Y-%m-%d")
-  min_timestamp=$(date -u -d "${tomorrow} 00:01" +%s)
-  max_timestamp=$(date -u -d "${tomorrow} 23:59" +%s)
-
+get_weather_night() {
+  local days=$1
+  calculate_timestamps $days
   echo $(echo $forecast_data | jq -r "[.daily[] | select(.dt >= $min_timestamp and .dt <= $max_timestamp) | .temp.night] | min")
 }
 
-get_uv_tomorrow() {
-    tomorrow=$(date -u -d "tomorrow" +"%Y-%m-%d")
-  min_timestamp=$(date -u -d "${tomorrow} 00:01" +%s)
-  max_timestamp=$(date -u -d "${tomorrow} 23:59" +%s)
-
+get_uv() {
+  local days=$1
+  calculate_timestamps $days
   echo $(echo $forecast_data | jq -r "[.daily[] | select(.dt >= $min_timestamp and .dt <= $max_timestamp) | .uvi] | max")
+}
+
+check_warnings() {
+  warnings=$(echo "$forecast_data" | jq -r ".alerts[].event")
+  if [ -z "$warnings" ]; then
+    echo ""
+  else
+    echo "$warnings"
+  fi
 }
